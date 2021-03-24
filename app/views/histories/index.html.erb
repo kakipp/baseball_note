@@ -2,22 +2,16 @@
 <div class="wrapper">
     <div class="main">
         <h1 class="history">Note</h1>
-        <div class="main-history">
-            <div class="history-title">
-                <a href="#">⚾︎title</a>
+        <% @histories.each do |history| %>
+            <div class="main-history">
+                <div class="history-title">
+                    <a>⚾︎<%= link_to history.title, history_path(history.id), method: :get %></a>
+                </div>
+                <div class="history-name">
+                    <a href="#"><%= history.user.name %></a>
+                </div>
             </div>
-            <div class="history-name">
-                <a href="#">hoge</a>
-            </div>
-        </div>
-        <div class="main-history">
-            <div class="history-title">
-                <a href="#">⚾︎title</a>
-            </div>
-            <div class="history-name">
-                <a href="#">hoge</a>
-            </div>
-        </div>
+        <% end %>
     </div>
     <div class="said-bar">
         <%= render "side_bar" %>
