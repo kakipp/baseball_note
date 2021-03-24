@@ -1,0 +1,38 @@
+<%= render "header"%>
+<div class="wrapper">    
+    <div class="history-new">
+        <%= form_with model: @history, id: 'user-main', class: 'history-main', local: true do |f| %>
+            <div class="form-top">
+                <h1 class="new-form">＜新規日記＞</h1>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">タイトル</label>
+                    <span class="indispensable">必須</span>
+                </div>
+                <%= f.text_area :title, class:"input-default", id:"nickname", maxlength:"40" %>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">カテゴリー</label>
+                    <span class="indispensable">必須</span>
+                </div>
+                <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+            </div>
+
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">ノート</label>
+                    <span class="indispensable">必須</span>
+                </div>
+                <%= f.text_area :text, class:"input-text"%>
+            </div>
+            <div class="action-btn">
+                <%= f.submit "投稿",class:"btn-text" %>
+            </div>
+        <% end %>
+    </div>
+    <div class="said-bar">
+        <%= render "side_bar" %>
+    </div>
+</div>

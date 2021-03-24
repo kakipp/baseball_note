@@ -4,7 +4,7 @@
     </div>
     <ul class='user-system'>
       <% if user_signed_in? %>
-        <li><%= link_to '新規投稿' "#", class: "sign" %></li>
+        <li><%= link_to '新規投稿', new_history_path, class: "sign" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign" %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "sign" %></li>
