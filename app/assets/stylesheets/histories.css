@@ -102,6 +102,7 @@
     overflow: scroll;
 }
 .history-main{
+    padding-bottom: 200px;
     box-shadow:
     0 1.9px 2.5px rgba(0, 0, 0, 0.057),
     0 5px 6.1px rgba(0, 0, 0, 0.076),
@@ -126,6 +127,18 @@
   .more_list li a:hover {
     background-color: #57C3E9;
     color: #fff;
+  }
+
+  .text-area{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 20px;
+    color: black;
+  }
+  .history-text{
+    margin: 20px 100px;
+    border: 1px solid black;
+    border-radius: 4px;
   }
   
 

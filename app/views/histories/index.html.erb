@@ -8,7 +8,7 @@
                     <a>⚾︎<%= link_to history.title, history_path(history.id), method: :get %></a>
                 </div>
                 <div class="history-name">
-                    <a href="#"><%= history.user.name %></a>
+                    <a><%= link_to history.user.name, user_path(history.user_id), method: :get %></a>
                 </div>
             </div>
         <% end %>
