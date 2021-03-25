@@ -53,7 +53,7 @@
 
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">所属</label>
+        <label class="form-text">ポジション</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:position_id, Position.all, :id, :name, {}, {class:"select-box", id:"position"}) %>
@@ -67,8 +67,6 @@
     </div>
     <div class="action-btn">
         <%= f.submit "登録",class:"btn-text" %>
-    </div>
-    <div class="footer">
     </div>
   <% end %>
     

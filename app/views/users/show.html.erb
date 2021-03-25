@@ -1,0 +1,59 @@
+<%= render "histories/header"%>
+<div class="wrapper">
+    <div class="main-user-show">
+        <% if user_signed_in? %>
+            <% if current_user.id == @user.id %>
+                <ul class="more_list">
+                    <li>
+                    <%= link_to '編集', edit_user_path(@user.id), method: :get %>
+                    </li>
+                </ul>
+            <% end %>
+        <% end %>
+        <div class="history-main">
+            <div class="profile">
+                <h1>＜プロフィール＞</h1>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">名前</label>
+                </div>
+                <%= @user.name %>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">所属</label>
+                </div>
+                <%= @user.affiliation.name %>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">所属チーム</label>
+                </div>
+                <%= @user.affiliation_team %>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">ポジション</label>
+                </div>
+                <%= @user.position.name %>
+            </div>
+            <div class="form-group">
+                <div class='form-text-wrap'>
+                    <label class="form-text">自己紹介</label>
+                </div>
+                <%= @user.introduction %>
+            </div>
+            <% @histories.each do |history| %>
+                <div class="main-history">
+                    <div class="history-title">
+                        <a>⚾︎<%= link_to history.title, history_path(history.id), method: :get %></a>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="said-bar">
+        <%= render "histories/side_bar" %>
+    </div>
+</div>

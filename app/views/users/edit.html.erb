@@ -1,0 +1,43 @@
+<%= render "histories/header"%>
+  <%= form_with model: @user, url: user_path, id: 'user-main', class: 'user-main', local: true do |f| %>
+    <div class="form-top">
+      <h1 class="new-form">ユーザー編集</h1>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ニックネーム</label>
+      </div>
+      <%= f.text_area :name, class:"input-default", id:"nickname", maxlength:"40" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">所属</label>
+      </div>
+      <%= f.collection_select(:affiliation_id, Affiliation.all, :id, :name, {}, {class:"select-box", id:"affiliatation"}) %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">所属チーム名</label>
+      </div>
+      <%= f.text_area :affiliation_team, class:"input-default", maxlength:"40"%>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ポジション</label>
+      </div>
+      <%= f.collection_select(:position_id, Position.all, :id, :name, {}, {class:"select-box", id:"position"}) %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">自己紹介</label>
+      </div>
+      <%= f.text_area :introduction, class:"input-text"%>
+    </div>
+    <div class="action-btn">
+        <%= f.submit "登録",class:"btn-text" %>
+    </div>
+  <% end %>
