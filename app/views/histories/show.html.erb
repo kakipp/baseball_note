@@ -3,11 +3,26 @@
 <div class="wrapper">    
     <div class="history-new">
         <div class="history-main">
+            <div class="form-top">
+                <h1 class="new-form"><%= @history.title %></h1>
+            </div>
+            <div class="history-name">
+                <a>投稿者  <%= link_to @history.user.name, user_path(@history.user_id), method: :get %></a>
+                <div class="tag-list">
+                    <% @history.tags.each do |tag| %>
+                        タグ #<%=tag.name%>
+                    <%end%>
+                </div>
+            </div>
+                
+            <div class="history-text">
+                <p class="text-area"><%= @history.text %></p>
+            </div>
             <% if user_signed_in? %>
                 <% if current_user.id == @history.user_id %>
                     <ul class="more_list">
                         <li>
-                        <%= link_to '編集', edit_history_path(@history.id), method: :get %>
+                        <%#= link_to '編集', edit_history_path(@history.id), method: :get %>
                         </li>
                         <li>
                         <%= link_to '削除', history_path(@history.id), method: :delete %>
@@ -15,15 +30,6 @@
                     </ul>
                 <% end %>
             <% end %>
-            <div class="form-top">
-                <h1 class="new-form"><%= @history.title %></h1>
-            </div>
-            <div class="history-name">
-                    <a><%= link_to @history.user.name, user_path(@history.user_id), method: :get %></a>
-                </div>
-            <div class="history-text">
-                <p class="text-area"><%= @history.text %></p>
-            </div>
         </div>
 
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_071844) do
+ActiveRecord::Schema.define(version: 2021_03_25_035701) do
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2021_03_20_071844) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "history_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "history_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["history_id"], name: "index_history_tag_relations_on_history_id"
+    t.index ["tag_id"], name: "index_history_tag_relations_on_tag_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,4 +55,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_071844) do
   end
 
   add_foreign_key "histories", "users"
+  add_foreign_key "history_tag_relations", "histories"
+  add_foreign_key "history_tag_relations", "tags"
 end

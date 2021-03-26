@@ -73,7 +73,7 @@
     color: black;
 }
 .history-name{
-    margin: 30px 0 0 0;
+    margin: 30px 30px 0 30px;
 }
 .history-name a{
     font-size: 20px;
@@ -111,23 +111,17 @@
     0 38.4px 34.8px rgba(0, 0, 0, 0.1),
     0 101px 74px rgba(0, 0, 0, 0.13);
 }
+.more_list{
+    display: flex;
+    justify-content: flex-end;
+}
 .more_list li {
-    border-bottom: 1px solid #ddd;
-  }
-  
-.more_list li:last-child {
-    border-bottom: 0;
-  }
-  
-.more_list li a {
-    display: block;
-    padding: 5px;
-  }
-  
-  .more_list li a:hover {
-    background-color: #57C3E9;
-    color: #fff;
-  }
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    margin: 30px;
+    
+}
 
   .text-area{
     white-space: pre-wrap;
@@ -137,8 +131,10 @@
   }
   .history-text{
     margin: 20px 100px;
-    border: 1px solid black;
-    border-radius: 4px;
+  }
+
+  .tag-list{
+      margin-top: 20px;
   }
   
 

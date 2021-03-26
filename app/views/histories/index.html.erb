@@ -6,6 +6,9 @@
             <div class="main-history">
                 <div class="history-title">
                     <a>⚾︎<%= link_to history.title, history_path(history.id), method: :get %></a>
+                    <%history.tags.each do |tag| %>
+                        タグ #<%=tag.name%>
+                    <%end%>
                 </div>
                 <div class="history-name">
                     <a><%= link_to history.user.name, user_path(history.user_id), method: :get %></a>

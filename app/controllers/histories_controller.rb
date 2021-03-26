@@ -7,15 +7,16 @@ class HistoriesController < ApplicationController
   end
 
   def new
-    @history = History.new
+    @history = HistoriesTag.new
   end
 
   def create
-    @history = History.new(history_params)
-    if @history.save
-      redirect_to root_path
+    @history = HistoriesTag.new(history_params)
+    if @history.valid? 
+        @history.save
+        redirect_to root_path
     else
-      render :new
+        render :new
     end
   end
 
@@ -26,8 +27,10 @@ class HistoriesController < ApplicationController
   end
 
   def update
-    if  @history.update(history_params)
-        redirect_to history_path(@history.id)
+    @history = HistoriesTag.new(history_params)
+    if @history.valid? 
+        @history.save
+        redirect_to root_path
     else
         render :edit
     end
@@ -37,12 +40,18 @@ class HistoriesController < ApplicationController
     if @history.destroy
         redirect_to root_path
     end
-end
+  end
+
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
 
   private
 
   def history_params
-    params.require(:history).permit(:title, :text, :category_id).merge(user_id: current_user.id)
+    params.require(:histories_tag).permit(:title, :text, :category_id, :name).merge(user_id: current_user.id)
   end
 
   def set_history
