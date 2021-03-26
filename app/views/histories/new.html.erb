@@ -1,7 +1,7 @@
 <%= render "header"%>
 <div class="wrapper">    
     <div class="history-new">
-        <%= form_with model: @history, id: 'user-main', class: 'history-main', local: true do |f| %>
+        <%= form_with model: @history,url: histories_path, id: 'user-main', class: 'history-main', local: true do |f| %>
             <div class="form-top">
                 <h1 class="new-form">＜新規日記＞</h1>
             </div>
@@ -18,6 +18,16 @@
                     <span class="indispensable">必須</span>
                 </div>
                 <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+            </div>
+
+            <div class="form-group">
+                <div class='form-text-wrap'id='tag-field'>
+                    <label class="form-text">タグ</label>
+                    <span class="indispensable">必須</span>
+                </div>
+                <%= f.text_area :name, class:"input-default" %>
+                <div id="search-result">
+                </div>
             </div>
 
             <div class="form-group">
