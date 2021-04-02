@@ -6,7 +6,7 @@
       <% if user_signed_in? %>
         <li>
           <%= link_to user_path(current_user.id) do %>
-            <%=  image_tag current_user.image, class: 'icon' %>
+            <%=  image_tag current_user.image, class: 'icon' %> 
           <% end %>
         </li>
         <li><%= link_to '新規投稿', new_history_path, class: "sign" %></li>
