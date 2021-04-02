@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   has_many :histories
-  
+  has_one_attached :image
   
   extend ActiveHash::Associations::ActiveRecordExtensions
          belongs_to :affiliation
@@ -16,5 +16,6 @@ class User < ApplicationRecord
            validates :introduction
            validates :position_id, numericality: { other_than: 1 }
            validates :affiliation_id, numericality: { other_than: 1 }
+           validates :image
          end
 end
