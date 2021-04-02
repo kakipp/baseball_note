@@ -11,7 +11,7 @@
                     <%end%>
                 </div>
                 <div class="history-name">
-                    <a><%= link_to history.user.name, user_path(history.user_id), method: :get %></a>
+                    <a><%=  image_tag history.user.image, class: 'user-index-image' %><%= link_to history.user.name, user_path(history.user_id), method: :get %></a>
                 </div>
             </div>
         <% end %>

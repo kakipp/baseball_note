@@ -7,7 +7,7 @@
                 <h1 class="new-form"><%= @history.title %></h1>
             </div>
             <div class="history-name">
-                <a>投稿者  <%= link_to @history.user.name, user_path(@history.user_id), method: :get %></a>
+                <a>投稿者  <%= link_to @history.user.name, user_path(@history.user_id), method: :get %><%=  image_tag @history.user.image, class: 'user-index-image' %></a>
                 <div class="tag-list">
                     <% @history.tags.each do |tag| %>
                         タグ #<%=tag.name%>

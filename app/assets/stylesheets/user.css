@@ -112,3 +112,9 @@
     padding: 30px 50px;
     overflow: scroll;
 }
+
+.user-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :position_id, :affiliation_id, :affiliation_team, :introduction)
+        params.require(:user).permit(:name, :position_id, :affiliation_id, :affiliation_team, :introduction, :image)
     end
 
     def edit_user
